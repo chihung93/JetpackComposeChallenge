@@ -15,13 +15,15 @@
  */
 package com.example.androiddevchallenge.ui.theme
 
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import com.example.androiddevchallenge.R
 
-val purple200 = Color(0xFFBB86FC)
-val purple500 = Color(0xFF6200EE)
-val purple700 = Color(0xFF3700B3)
-val teal200 = Color(0xFF666666)
 
-val secondPrimary = Color(0xFF666666)
-val text_4 = Color(0xFF444444)
-val text_9 = Color(0xFF999999)
+
+val fontDefault = FontFamily(
+    Font(R.font.barlow_regular, FontWeight.Normal),
+    Font(R.font.barlow_medium, FontWeight.Medium),
+    Font(R.font.barlow_light, FontWeight.Light),
+)
