@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.ui.main
 
 import androidx.compose.foundation.Image
@@ -50,7 +65,7 @@ fun MyApp() {
                 .fillMaxHeight()
         ) {
             Image(
-                painter = painterResource(if(dark) R.drawable.ic_vector_header_dark else R.drawable.ic_vector_header),
+                painter = painterResource(if (dark) R.drawable.ic_vector_header_dark else R.drawable.ic_vector_header),
                 contentDescription = "Header",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -92,18 +107,15 @@ fun MyApp() {
                         SecondRow()
                         ThirdRow()
                         FourRow()
-
                     }
                 }
             }
-
         }
-
     }
 }
 
 @Composable
-fun Header(){
+fun Header() {
     Row(
         Modifier
             .fillMaxWidth()
@@ -127,7 +139,8 @@ fun Header(){
                 topEnd = 20.dp,
                 bottomEnd = 0.dp,
                 bottomStart = 20.dp
-            ), backgroundColor = Color(
+            ),
+            backgroundColor = Color(
                 0x140DA0EA
             )
         ) {
@@ -154,96 +167,127 @@ fun Header(){
 }
 
 @Composable
-fun FirstRow(){
+fun FirstRow() {
     Row(
         Modifier
             .fillMaxWidth()
             .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
+    ) {
         Column {
-            Image(painter = painterResource(id = R.drawable.ic_vector_sunny),contentDescription = null,
-            modifier = Modifier.size(40.dp,40.dp)
-                )
-            Text("Sunny",fontWeight = FontWeight.Medium,fontFamily = fontDefault,fontSize = 18.sp)
+            Image(
+                painter = painterResource(id = R.drawable.ic_vector_sunny), contentDescription = null,
+                modifier = Modifier.size(40.dp, 40.dp)
+            )
+            Text("Sunny", fontWeight = FontWeight.Medium, fontFamily = fontDefault, fontSize = 18.sp)
         }
 
-        Row{
-            Text("33",fontWeight = FontWeight.Light,fontFamily = fontDefault,fontSize = 64.sp)
-            Text(text = "°C",fontWeight = FontWeight.Medium,fontFamily = fontDefault,fontSize = 24.sp,
+        Row {
+            Text("33", fontWeight = FontWeight.Light, fontFamily = fontDefault, fontSize = 64.sp)
+            Text(
+                text = "°C", fontWeight = FontWeight.Medium, fontFamily = fontDefault, fontSize = 24.sp,
                 color = secondPrimary,
                 modifier = Modifier.padding(top = 14.dp)
-                )
+            )
         }
 
         Column {
             Row(verticalAlignment = Alignment.Top) {
-               Text(text = "35°C",fontWeight = FontWeight.Light,fontFamily = fontDefault,fontSize = 16.sp,
-                   color = secondPrimary)
-                Image(painter = painterResource(id = R.drawable.ic_vector_up), contentDescription = "",
-                    modifier = Modifier.padding(top = 4.dp,start = 2.dp))
+                Text(
+                    text = "35°C", fontWeight = FontWeight.Light, fontFamily = fontDefault, fontSize = 16.sp,
+                    color = secondPrimary
+                )
+                Image(
+                    painter = painterResource(id = R.drawable.ic_vector_up), contentDescription = "",
+                    modifier = Modifier.padding(top = 4.dp, start = 2.dp)
+                )
             }
             Spacer(modifier = Modifier.size(12.dp))
-            Row (verticalAlignment = Alignment.Bottom){
-                Text(text = "27°C",fontWeight = FontWeight.Light,fontFamily = fontDefault,fontSize = 16.sp,
-                    color = secondPrimary)
-                Image(painter = painterResource(id = R.drawable.ic_vector_down), contentDescription = "",
-                modifier = Modifier.padding(bottom = 4.dp,start = 2.dp)
-                    )
+            Row(verticalAlignment = Alignment.Bottom) {
+                Text(
+                    text = "27°C", fontWeight = FontWeight.Light, fontFamily = fontDefault, fontSize = 16.sp,
+                    color = secondPrimary
+                )
+                Image(
+                    painter = painterResource(id = R.drawable.ic_vector_down), contentDescription = "",
+                    modifier = Modifier.padding(bottom = 4.dp, start = 2.dp)
+                )
             }
         }
     }
 }
 
 @Composable
-fun GeneralUnit(resId:Int,title:String,subTitle:String){
-    Column(verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-        Image(painter = painterResource(id = resId), contentDescription = "",
-            modifier = Modifier.size(24.dp))
+fun GeneralUnit(resId: Int, title: String, subTitle: String) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(id = resId), contentDescription = "",
+            modifier = Modifier.size(24.dp)
+        )
         Spacer(modifier = Modifier.size(12.dp))
-        Text(text = title,fontWeight = FontWeight.Medium,fontFamily = fontDefault,fontSize = 16.sp,
-            color = text_4)
-        Text(text = subTitle,fontWeight = FontWeight.Medium,fontFamily = fontDefault,fontSize = 9.sp,
-            color = text_9)
+        Text(
+            text = title, fontWeight = FontWeight.Medium, fontFamily = fontDefault, fontSize = 16.sp,
+            color = text_4
+        )
+        Text(
+            text = subTitle, fontWeight = FontWeight.Medium, fontFamily = fontDefault, fontSize = 9.sp,
+            color = text_9
+        )
     }
 }
 
 @Composable
-fun GeneralDay(resId:Int,day:String,upTitle:String,downTitle:String){
-    Card(shape = RoundedCornerShape(16.dp),elevation = 4.dp,modifier = Modifier
-        .padding(
-            start = 16.dp,
-            top = 16.dp,
-            bottom = 16.dp,
-            end = 0.dp
-        ),backgroundColor = Color.White,
+fun GeneralDay(resId: Int, day: String, upTitle: String, downTitle: String) {
+    Card(
+        shape = RoundedCornerShape(16.dp), elevation = 4.dp,
+        modifier = Modifier
+            .padding(
+                start = 16.dp,
+                top = 16.dp,
+                bottom = 16.dp,
+                end = 0.dp
+            ),
+        backgroundColor = Color.White,
 
-        ) {
-        Column(verticalArrangement = Arrangement.Center,
+    ) {
+        Column(
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(18.dp)
         ) {
-            Image(painter = painterResource(id = resId), contentDescription = "",
-                modifier = Modifier.size(24.dp))
+            Image(
+                painter = painterResource(id = resId), contentDescription = "",
+                modifier = Modifier.size(24.dp)
+            )
             Spacer(modifier = Modifier.size(12.dp))
-            Text(text = day,fontWeight = FontWeight.Medium,fontFamily = fontDefault,fontSize = 16.sp,
-                color = text_4)
+            Text(
+                text = day, fontWeight = FontWeight.Medium, fontFamily = fontDefault, fontSize = 16.sp,
+                color = text_4
+            )
             Row {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = upTitle,fontWeight = FontWeight.Medium,fontFamily = fontDefault,fontSize = 8.sp,
-                        color = secondPrimary)
-                    Image(painter = painterResource(id = R.drawable.ic_vector_up), contentDescription = "",
-                        modifier = Modifier.size(width = 5.dp,height = 7.dp))
+                    Text(
+                        text = upTitle, fontWeight = FontWeight.Medium, fontFamily = fontDefault, fontSize = 8.sp,
+                        color = secondPrimary
+                    )
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_vector_up), contentDescription = "",
+                        modifier = Modifier.size(width = 5.dp, height = 7.dp)
+                    )
                 }
                 Spacer(modifier = Modifier.size(12.dp))
-                Row (verticalAlignment = Alignment.CenterVertically){
-                    Text(text = downTitle,fontWeight = FontWeight.Medium,fontFamily = fontDefault,fontSize = 8.sp,
-                        color = secondPrimary)
-                    Image(painter = painterResource(id = R.drawable.ic_vector_down), contentDescription = "",
-                        modifier = Modifier.size(width = 5.dp,height = 7.dp)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = downTitle, fontWeight = FontWeight.Medium, fontFamily = fontDefault, fontSize = 8.sp,
+                        color = secondPrimary
+                    )
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_vector_down), contentDescription = "",
+                        modifier = Modifier.size(width = 5.dp, height = 7.dp)
                     )
                 }
             }
@@ -252,14 +296,14 @@ fun GeneralDay(resId:Int,day:String,upTitle:String,downTitle:String){
 }
 
 @Composable
-fun SecondRow(){
+fun SecondRow() {
     Row(
         Modifier
             .fillMaxWidth()
             .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
-    ){
+    ) {
         GeneralUnit(resId = R.drawable.ic_vector_humidity, title = "49%", subTitle = "Humidity")
         GeneralUnit(resId = R.drawable.ic_vector_barometer, title = "1,007mBar", subTitle = "Pressure")
         GeneralUnit(resId = R.drawable.ic_vector_wind, title = "23 km/h", subTitle = "Wind")
@@ -267,14 +311,14 @@ fun SecondRow(){
 }
 
 @Composable
-fun ThirdRow(){
+fun ThirdRow() {
     Row(
         Modifier
             .fillMaxWidth()
             .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
-    ){
+    ) {
         GeneralUnit(resId = R.drawable.ic_vector_sunrise, title = "6:03 AM", subTitle = "Sunrise")
         GeneralUnit(resId = R.drawable.ic_vector_sunset, title = "7:05 PM", subTitle = "Sunset")
         GeneralUnit(resId = R.drawable.ic_vector_daytime, title = "13h 1m", subTitle = "Daytime")
@@ -282,7 +326,7 @@ fun ThirdRow(){
 }
 
 @Composable
-fun FourRow(){
+fun FourRow() {
     LazyRow {
         item {
             GeneralDay(resId = R.drawable.ic_vector_sunny, day = "Mon, 21", upTitle = "35°C", downTitle = "26°C")
@@ -295,4 +339,3 @@ fun FourRow(){
         }
     }
 }
-
